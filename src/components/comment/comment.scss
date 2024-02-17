@@ -1,0 +1,29 @@
+.massages{
+    input{
+        background-color: rgb(124, 87, 60);
+        color: white;
+        border-color:rgb(124, 87, 60) ;
+        border-radius: 40px;
+        touch-action: none;
+        width: 30%;
+        height: 90px;
+        font-size: 30px;
+        font-weight: 400;
+        padding: 0 40px;
+    }
+    input::placeholder{
+        color: white;
+    }
+    .buttonSend{
+        background-color:rgb(124, 87, 60) ;
+        color: white;
+        font-weight: 400;
+        height: 90px;
+        border: 0px;
+        border-radius: 35px;
+        width: 8%;
+        font-size: 25px;
+        margin-left: 2%;
+        margin-bottom: 40px;
+    }
+}
