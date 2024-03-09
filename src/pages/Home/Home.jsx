@@ -3,16 +3,50 @@ import Serv from '../../components/serv/serv.jsx'
 import Coffee from '../../components/coffee/coffee.jsx'
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import coffee1 from '../../assets/coffee1.png'
+import coffee2 from '../../assets/coffee2.png'
+import coffee3 from '../../assets/coffee3.png'
 
+const arrImg = [
+  {
+    "img": coffee1,
+    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?1'
+  },
+  {
+    "img": coffee2,
+    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?2'
+  },
+  {
+    "img": coffee3,
+    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?3'
+  }
+]
 
 export default function Home(props) {
-  const [user, setUser] = ("")
+  const [count, setCount] = useState(0)
+  const [user, setUser] = useState("")
   const auth = getAuth()
   const navigate = useNavigate()
   function singOutBtn(){
     signOut(auth)
     navigate("/login")
+  }
+
+  function handlePrev(){
+    if(count == 0){
+      setCount(arrImg.length - 1);
+      return
+    }
+    setCount((prevCount) => prevCount - 1)
+  }
+
+  function handleNext(){
+    if(count === arrImg.length - 1){
+      setCount(0);
+      return
+    }
+    setCount((prevCount) => prevCount + 1)
   }
 
   useEffect(() => {
@@ -61,6 +95,14 @@ export default function Home(props) {
       <Serv text = {'Beans variant'} img={props.serv4}/>
       <Serv text = {'Pastry'} img={props.serv5}/>
     </div>
+  </div>
+  <div className="slider">
+    <button onClick={handlePrev} className='nextPrev'>Previece</button>
+    <div className='container-slider'>
+      <img src={arrImg[count].img} alt="" />
+      <p className='slider-text'>{arrImg[count].text}</p>
+    </div>
+    <button onClick={handleNext} className='nextPrev'>Next</button>
   </div>
   <div className="container-third">
     <div className="third-left">

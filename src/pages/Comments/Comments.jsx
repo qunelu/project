@@ -14,10 +14,10 @@ export default function Comments() {
       setArr([...arr,{comment}])}
     }
 
-    function delCom(id){
-    const copyArr = [...arr];
-    const resualtArr = copyArr.filter((item) => item.id != id);
-    setArr(resualtArr);
+  function delCom(index){
+  const copyArr = [...arr];
+  const resualtArr = copyArr.filter((item) => item.index != index);
+  setArr(resualtArr);
   }
 
     

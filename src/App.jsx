@@ -1,6 +1,4 @@
 import './App.scss'
-import info from "./info.json"
-import Card from "./components/card/card"
 import {useState} from "react"
 import logo from './images/logo.png'
 import person from './images/person.png'
@@ -18,74 +16,17 @@ import serv4 from './images/serv4.png'
 import serv5 from './images/serv5.png'
 import packs from './images/coffeepacks.png'
 import fourthbg from './images/fourthbg.png'
-import coffee1 from './assets/coffee1.png'
-import coffee2 from './assets/coffee2.png'
-import coffee3 from './assets/coffee3.png'
-import Coffee from './components/coffee/coffee'
-import Serv from './components/serv/serv'
 import footer from './images/footer.png'
 import location from './images/location.png'
 import number from './images/number.png'
 import mail from './images/mail.png'
-import Comment from './components/comment/comment'
 import { BrowserRouter as Router, NavLink, Route, Routes } from "react-router-dom";
-import {Blog, Home, Comments, Error404, Login, Registration, Test} from './pages'
+import {Blog, Home, Comments, Error404, Login, Registration} from './pages'
 
-
-const arrImg = [
-  {
-    "img": coffee1,
-    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?1'
-  },
-  {
-    "img": coffee2,
-    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?2'
-  },
-  {
-    "img": coffee3,
-    "text": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, laboriosam?3'
-  }
-]
- 
 
 function App(){
-  const [count, setCount] = useState(0)
-
-
-  // function delCom(id){
-  //   const copyArr = [...arr];
-  //   const resualtArr = copyArr.filter((item) => item.id != id);
-  //   setArr(resualtArr);
-  // }
-
-
-
-  function handlePrev(){
-    if(count == 0){
-      setCount(arrImg.length - 1);
-      return
-    }
-    setCount((prevCount) => prevCount - 1)
-  }
-
-  function handleNext(){
-    if(count === arrImg.length - 1){
-      setCount(0);
-      return
-    }
-    setCount((prevCount) => prevCount + 1)
-  }
-
   return (
 <Router>
-{/* <div className="slider">
-  <button onClick={handlePrev}>Previece</button>
-  <div className='container-slider'>
-        <img src={arrImg[count].img} alt="" />
-        <p>{arrImg[count].text}</p>
-  </div>
-  <button onClick={handleNext}>Next</button>
-</div>  */}
 <header>
   <div className="upSide">
     <div className="left-up">
@@ -93,6 +34,7 @@ function App(){
         <nav>
           <NavLink to="/login">Log</NavLink>
           <NavLink to="/registration">Reg</NavLink>
+          
         </nav>
         <img src={logo} alt="" />
         <div className="personaly">
@@ -143,7 +85,6 @@ function App(){
     <Route path='*' element={<Error404/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/registration' element={<Registration/>}/>  
-    <Route path='/test'element={<Test/>}/> 
   </Routes>
 </main>    
 <footer>

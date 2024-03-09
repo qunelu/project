@@ -4,9 +4,16 @@
     background-color: rgb(124, 87, 60);
     margin-top: 20px;
     width: 40%;
+    display: flex;
+    justify-content: space-between;
     .text{
         color: white;
         font-size: 20px;
         font-weight: 500;
+    }
+    .del{
+        background-color:rgb(124, 87, 60) ;
+        border: 0px;
+        color: white;
     }
 }
